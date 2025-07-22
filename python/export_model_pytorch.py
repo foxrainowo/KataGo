@@ -458,9 +458,12 @@ def main(args):
                 }
         json.dump(data,f)
 
+    def get_local_time():
+        local_time = datetime.datetime.now().astimezone().isoformat(sep=" ", timespec="seconds")
+        return f"{local_time}"
 
-    logging.info("Exported at: ")
-    logging.info(str(datetime.datetime.utcnow()) + " UTC")
+    logging.info("Exported at:")
+    logging.info(get_local_time())
 
     sys.stdout.flush()
     sys.stderr.flush()
